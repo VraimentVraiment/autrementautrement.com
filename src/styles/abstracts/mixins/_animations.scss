@@ -1,0 +1,42 @@
+@use 'sass:math';
+@use 'sass:map';
+
+$slide-offset-length: 1rem;
+$slide-timing-function: ease-out;
+$slide-duration: .6s;
+$slide-coef: 0.75;
+$slide-start: 0.15;
+$slide-end: $slide-coef + $slide-start * (1 - $slide-coef);
+
+@mixin hidden-right {
+  opacity: 0.001;
+  transform: translateX(-$slide-offset-length);
+}
+
+@mixin hidden-left {
+  opacity: 0.001;
+  transform: translateX($slide-offset-length);
+}
+
+@mixin shown {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes slide-in {
+  0% {
+    @include hidden-right;
+  }
+
+  #{$slide-start * 100%} {
+    @include hidden-right;
+  }
+
+  #{$slide-end * 100%} {
+    @include shown;
+  }
+}
+
+@mixin slide-in {
+  animation: slide-in $slide-duration $slide-timing-function forwards;
+}

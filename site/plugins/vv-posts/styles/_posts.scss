@@ -1,0 +1,27 @@
+.posts {
+  @apply relative;
+
+  .posts__header {
+    @apply pt-4;
+
+    z-index: 10;
+
+    .posts__title {
+      @apply flex items-center justify-between;
+
+      h2 {
+        @apply inline m-0;
+      }
+
+      .posts__search {
+        --offset-x: 0.25em;
+
+        @apply text-2xl;
+
+        .posts__search-icon {
+          @apply i-ri-search-line;
+        }
+      }
+    }
+  }
+}

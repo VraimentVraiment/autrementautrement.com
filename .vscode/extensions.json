@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+
+    // PHP / Composer
+    "ikappas.composer",
+    "valeryanm.vscode-phpsab",
+
+    // Kirby Cms
+    "medienbaecker.kirby-snippets",
+
+    // Node / npm
+    "christian-kohler.npm-intellisense",
+
+    // JavaScript
+    "dbaeumer.vscode-eslint",
+
+    // CSS
+    "stylelint.vscode-stylelint",
+    "antfu.unocss"
+  ]
+}

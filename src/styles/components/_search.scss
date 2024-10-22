@@ -1,0 +1,17 @@
+.search {
+  @apply flex flex-col gap-12;
+}
+
+.search__form {
+  @include slide-in;
+}
+
+.search__header {
+  @apply flex flex-col gap-16;
+}
+
+.search__info {
+  @apply text-base flex gap-2;
+
+  color: $vv-web-black-light;
+}

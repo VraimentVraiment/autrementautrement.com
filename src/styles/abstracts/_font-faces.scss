@@ -1,0 +1,36 @@
+/**
+ * FONTS
+ */
+$main-font-name: "Copernicus";
+$default-fonts: -apple-system, system-ui, blinkmacsystemfont, sans-serif;
+$font-family: $main-font-name, $default-fonts;
+$font-path: "@/assets/fonts/copernicus";
+$font-prefix: "CopernicusTrial";
+$font-display: swap;
+$font-styles: (
+  normal: "",
+  italic: "Italic",
+);
+$font-weights: (
+  300: "-Book",
+  400: "-Medium",
+  500: "-SemiBold",
+  600: "-Bold",
+  700: "-ExtraBold",
+  800: "-Heavy",
+);
+
+@each $font-weight, $font-weight-label in $font-weights {
+  @each $font-style, $font-style-label in $font-styles {
+    $url: "#{$font-path}/#{$font-prefix}#{$font-weight-label}#{$font-style-label}";
+
+    @font-face {
+      font-family: $main-font-name;
+      src: url("#{$url}.woff2") format("woff2"),
+      url("#{$url}.woff") format("woff");
+      font-weight: $font-weight;
+      font-style: $font-style;
+      font-display: $font-display;
+    }
+  }
+}

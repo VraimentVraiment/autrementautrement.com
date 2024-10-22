@@ -1,0 +1,110 @@
+title: Article
+
+icon: file-text
+
+options:
+  changeTemplate:
+    - post
+    - map-post
+
+status:
+  draft:
+    label: Brouillon
+    text: L'article est encore en mode brouillon. Il ne peut-être vu que par les éditeurs ayant accès au panel d'administration.
+  listed:
+    label: Publié
+    text: L'article est en ligne et référencé publiquement.
+
+tabs:
+
+  content:
+    icon: text
+    columns:
+      - width: 2/3
+        fields:
+          date:
+            width: 1/2
+            label: Date de publication
+            type: date
+            default: now
+          type:
+            width: 1/2
+            label: Type d'article
+            type: select
+            accept: options
+            options:
+              type: query
+              query: collection('post-types')
+              default: article
+              text: '{{ item.name }}'
+              value: '{{ item.slug }}'
+          categories:
+            width: 1
+            label: Catégorie(s)
+            type: multiselect
+            accept: options
+            options:
+              type: query
+              query: collection('post-categories')
+              text: '{{ item.name }}'
+              value: '{{ item.slug }}'
+          author:
+            width: 1
+            label: Auteur·rice·s (facultatif)
+            type: writer
+            size: tiny
+            help: Une précision facultative sur l'auteur·rice de l'article
+          abstract:
+            width: 1
+            label: Chapô (facultatif)
+            help: Un court texte qui introduit éventuellement l'article
+            type: writer
+            size: medium
+          content:
+            label: Contenu
+            type: layout
+            layouts:
+              - 1/1
+              - '1/2, 1/2'
+              - '1/3, 1/3, 1/3'
+              - '1/3, 2/3'
+              - '2/3, 1/3'
+            fieldsets:
+              - text
+              - quote
+              - image
+              - gallery
+              - carousel
+              embed:
+                name: Média externe
+                icon: youtube
+                fields:
+                  embed:
+                    type: embed
+              - line
+              - map-spot
+              - map-teleportmark
+              - map-topmark
+          postscriptum:
+            width: 1
+            label: Post-scriptum (facultatif)
+            help: Un court texte qui conclut éventuellement l'article
+            type: writer
+            size: medium
+      - width: 1/3
+        fields:
+          cover:
+            extends: fields/image
+            label: Image principale
+            layout: cards
+            size: full
+          files:
+            help: Ajoutez ici des fichiers associés à l'article pour les rendre disponibles au téléchargement
+            type: files
+            label: Fichiers associés
+            layout: cards
+            size: small
+
+  seo:
+    label: SEO
+    extends: seo/page

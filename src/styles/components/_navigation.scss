@@ -1,0 +1,42 @@
+.site-header nav {
+  @apply fixed m-0 inset-0 bg-bg;
+
+  display: none;
+  transform: translateY(calc($header-height + 1px));
+
+  @include main-column;
+
+  ul {
+    max-width: none !important;
+  }
+
+  li {
+    @apply border-b border-solid border-border;
+
+    a {
+      @apply inline-block py-0.5em px-0.25em text-2xl decoration-none;
+    }
+  }
+}
+
+.static-menu-page nav {
+  display: block;
+}
+
+html.nav-open nav {
+  display: block;
+
+  & ul {
+    @include slide-in;
+  }
+}
+
+.current-page-icon {
+  display: none;
+
+  // @apply i-ri-arrow-drop-right-line;
+}
+
+// .modal-open header {
+//   pointer-events: none;
+// }

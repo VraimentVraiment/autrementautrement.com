@@ -1,0 +1,134 @@
+$headings: h1, h2, h3, h4, h5, h6;
+$texts: p, blockquote, pre, code, ul, ol;
+
+%title-2xl {
+  @apply text-3xl/snug md:text-4xl/snug lg:text-5xl/tight;
+}
+
+%title-xl {
+  @apply text-2xl/normal md:text-3xl/snug lg:text-4xl/snug;
+}
+
+%title-lg {
+  @apply text-xl/relaxed md:text-2xl/normal lg:text-3xl/snug;
+}
+
+%title-md {
+  @apply text-lg/relaxed md:text-xl/relaxed lg:text-2xl/normal;
+}
+
+%title-sm {
+  @apply text-base/relaxed md:text-lg/relaxed lg:text-xl/relaxed;
+}
+
+%title-xs {
+  @apply text-sm/relaxed md:text-base/relaxed lg:text-lg/relaxed;
+}
+
+h1 {
+  @extend %title-2xl;
+}
+
+h2 {
+  @extend %title-xl;
+}
+
+h3 {
+  @extend %title-lg;
+}
+
+h4 {
+  @extend %title-md;
+}
+
+h5 {
+  @extend %title-sm;
+}
+
+h6 {
+  @extend %title-xs;
+}
+
+#{$headings} {
+  font-weight: 700;
+
+  &.heading--2xl {
+    @extend %title-2xl;
+  }
+
+  &.heading--xl {
+    @extend %title-xl;
+  }
+
+  &.heading--lg {
+    @extend %title-lg;
+  }
+
+  &.heading--md {
+    @extend %title-md;
+  }
+
+  &.heading--sm {
+    @extend %title-sm;
+  }
+
+  &.heading--xs {
+    @extend %title-xs;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+  
+  &:not(:first-child) {
+    margin-top: 1.5em;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#{$texts} {
+  @apply text-lg/relaxed m-0 prose;
+
+  & + & {
+    margin-top: 1.5em;
+  }
+
+  &.text--4xl {
+    @apply text-4xl/snug;
+  }
+
+  &.text--3xl {
+    @apply text-3xl/snug;
+  }
+
+  &.text--2xl {
+    @apply text-2xl/normal;
+  }
+
+  &.text--xl {
+    @apply text-xl/relaxed;
+  }
+
+  &.text--lg {
+    @apply text-lg/relaxed;
+  }
+
+  &.text--md {
+    @apply text-base/relaxed;
+  }
+
+  &.text--sm {
+    @apply text-sm/relaxed;
+  }
+
+  &.text--xs {
+    @apply text-xs/relaxed;
+  }
+}

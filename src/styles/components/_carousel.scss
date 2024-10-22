@@ -1,0 +1,52 @@
+.carousel {
+  @apply relative overflow-hidden;
+}
+
+.carousel-inner {
+  @apply flex items-center;
+  @apply transition-transform duration-500 ease;
+
+  &.instant {
+    @apply transition-none;
+  }
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.carousel-caption {
+  transform: translateX(-50%);
+
+  @apply absolute bottom-4 left-1/2;
+  @apply text-white text-center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  @apply absolute bottom-3 decoration-none cursor-pointer;
+  @apply text-2xl/tight;
+  @apply flex items-center justify-center;
+  @apply size-10 md:size-8;
+
+  &, &:active {
+    @apply bg-bg outline outline-1px outline-black; 
+  }
+}
+
+.carousel-control-prev {
+  @apply left-3;
+}
+
+.carousel-control-next {
+  @apply right-3;
+}
+
+.carousel-control-prev-icon {
+  @apply i-ri-arrow-left-line;
+}
+
+.carousel-control-next-icon {
+  @apply i-ri-arrow-right-line;
+}

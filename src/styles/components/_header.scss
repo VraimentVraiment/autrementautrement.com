@@ -1,0 +1,105 @@
+/*
+ * SITE HEADER
+ */
+
+.site-header {
+  --bg-color: #{$vv-web-white};
+  --text-color: #{$vv-web-black};
+
+  @include main-column;
+  @apply fixed left-0 right-0 z-900;
+
+  background: var(--bg-color);
+
+  svg path {
+    fill: var(--text-color);
+  }
+
+  .site-header__inner {
+    @apply flex justify-between items-center py-6;
+    @apply border-b border-solid border-border;
+  }
+
+  &.site-header--contrast:not(html.nav-open .site-header) {
+    --bg-color: #{$vv-web-black};
+    --text-color: #{$vv-web-white};
+
+    @apply absolute;
+
+    .site-header__inner {
+      border-bottom-color: var(--bg-color);
+    }
+  }
+
+  &.site-header--fixed {
+    @apply fixed;
+  }
+
+  html.nav-open & {
+    z-index: 999 !important;
+  }
+
+  /*
+   * SITE LOGO
+   */
+
+  .site-logo {
+    @apply h-12;
+
+    --offset-y: 0.5rem !important;
+    --offset-x: 0.25rem !important;
+
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+
+    & svg {
+      @apply h-full w-auto;
+    }
+
+    &.--enter svg path {
+      transition: fill 0.3s ease;
+      fill: #{$vv-web-black};
+    }
+  }
+
+  h1.site-logo {
+    margin: 0 !important;
+    line-height: 0;
+  }
+}
+
+#nav-toggler {
+  --offset-x: 0.25rem !important;
+
+  @apply h-12;
+  @apply w-16 flex justify-center items-center;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: -0.5rem !important;
+
+  &.--enter svg path {
+    transition: fill 0.3s ease;
+    fill: #{$vv-web-black};
+  }
+
+  .nav-toggler__closed {
+    display: contents;
+  }
+
+  .nav-toggler__open {
+    display: none;
+  }
+}
+
+html.nav-open #nav-toggler {
+  & .nav-toggler__closed {
+    display: none;
+  }
+
+  .nav-toggler__open {
+    display: block;
+  }
+}

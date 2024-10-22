@@ -1,0 +1,21 @@
+name: field.blocks.text.name
+icon: text
+wysiwyg: true
+preview: text
+fields:
+  text:
+    type: writer
+    nodes: true
+    placeholder: field.blocks.text.placeholder
+  size:
+    label: field.blocks.heading.size
+    type: select
+    options:
+      - 4xl
+      - 3xl
+      - 2xl
+      - xl
+      - lg
+      - md
+      - sm
+      - xs

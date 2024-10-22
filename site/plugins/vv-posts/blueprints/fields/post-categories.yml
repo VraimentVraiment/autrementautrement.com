@@ -1,0 +1,14 @@
+label: Catégories d'articles
+type: structure
+columns:
+  name: true
+  type: true
+fields:
+  name:
+    label: Nom
+    type: text
+    required: true
+  slug:
+    label: Slug
+    type: slug
+    sync: name

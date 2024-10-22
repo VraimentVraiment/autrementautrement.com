@@ -1,0 +1,69 @@
+tabs:
+  site:
+    label: Site
+    icon: settings
+    columns:
+      - width: 1/3
+        sections:
+          mainpages:
+            type: pages
+            status: listed
+            label: Pages principales
+      - width: 1/3
+        fields:
+          unlistedpages:
+            label: Pages non listées
+            type: pages
+            status: unlisted
+      - width: 1/3
+        sections:
+          listed:
+            label: Pages brouillon
+            type: pages
+            status: draft
+      - width: 1
+        fields:
+          line:
+            type: line
+      - width: 1
+        sections:
+          - sections/navigation-menus
+      - width: 1
+        fields:
+          footer:
+            label: Pied de page
+            extends: fields/layout
+  posts:
+    label: Articles
+    icon: book
+    columns:
+      - width: 1/3
+        sections:
+          drafts:
+            extends: sections/posts
+            label: Articles en brouillon
+            status: draft
+            limit: 6
+            empty: Aucun article n'est en mode brouillon
+      - width: 1/3
+        fields:
+          posttypes:
+            label: Types d'articles
+            extends: fields/post-categories
+      - width: 1/3
+        fields:
+          postcategories:
+            extends: fields/post-categories
+      - width: 1
+        sections:
+          listedposts:
+            extends: sections/posts
+            label: Articles publiés
+            status: listed
+            empty: Aucun article n'est publié
+            layout: cards
+            size: medium
+            search: true
+  seo:
+    label: SEO
+    extends: seo/site

@@ -1,0 +1,77 @@
+:root {
+  // font-family: $font-family;
+
+  @if $use-font == 'source-serif' {
+    font-size: 15px;
+  } @else {
+    font-size: 14px;
+  }
+
+  @include sm {
+    @if $use-font == 'source-serif' {
+      font-size: 16px;
+    } @else {
+      font-size: 15px;
+    }
+  }
+
+  @include md {
+    @if $use-font == 'source-serif' {
+      font-size: 17px;
+    } @else {
+      font-size: 16px;
+    }
+  }
+
+  @include lg {
+    @if $use-font == 'source-serif' {
+      font-size: 18px;
+    } @else {
+      font-size: 17px;
+    }
+  }
+
+  @include xl {
+    @if $use-font == 'source-serif' {
+      font-size: 19px;
+    } @else {
+      font-size: 18px;
+    }
+  }
+
+  @include xxl {
+    @if $use-font == 'source-serif' {
+      font-size: 20px;
+    } @else {
+      font-size: 19px;
+    }
+  }
+}
+
+html {
+  $scroll-offset: 4rem;
+
+  scroll-padding-top: $header-height + $scroll-offset;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-background;
+  color: $color-font-dark;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

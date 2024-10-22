@@ -1,0 +1,51 @@
+{
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  "css.validate": false,
+  "scss.validate": false,
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "phpsab.fixerEnable": true,
+  "phpsab.snifferEnable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "unocss.include": [
+    "src/**/*.{scss,css,html,js,jsx,ts,tsx,vue,php}",
+    "site/plugins/**/*.{scss,css,html,js,jsx,ts,tsx,vue,php}"
+  ],
+  "unocss.underline": true,
+  "unocss.root": ["src", "site/plugins"],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro"
+    // "css",
+    // "less",
+    // "scss",
+    // "pcss",
+    // "postcss"
+  ]
+}

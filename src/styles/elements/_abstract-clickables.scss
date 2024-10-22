@@ -1,0 +1,139 @@
+@mixin nojs-background-color {
+  /** @todo set different background color in php for no-js */
+  --background-color: #F7C6C8;
+  
+  // #BECFEB
+  // #BCE6E4
+  // #EDC7E2
+  // #CBEBA2
+  // #B9EBC7
+  // #D7C7EB
+  // #F7C6C8
+  // #F2DCB6
+}
+
+@mixin clickable($no-js: false) {
+  --background-color: transparent; // This is set in js
+
+  /** The duration of the link animation */
+  --link-animation-duration: #{$link-animation-duration};
+  --active-link-animation-duration: #{$link-animation-duration};
+  --active-link-animation-delay : #{$active-link-animation-delay};
+
+  /** The offsets that are used to create the background effect, defaults to 0 */
+  --offset-left: 0em;
+  --offset-right: 0em;
+  --offset-top: 0em;
+  --offset-bottom: 0em;
+
+  /** If defined, offset-x and offset-y will be used for both left and right, and top and bottom */
+  --computed-offset-left: var(--offset-x, var(--offset-left));
+  --computed-offset-right: var(--offset-x, var(--offset-right));
+  --computed-offset-top: var(--offset-y, var(--offset-top));
+  --computed-offset-bottom: var(--offset-y, var(--offset-bottom));
+
+  /** The dimensions of the background image */
+  --before-enter-bg-x: calc(var(--computed-offset-left) * -1);
+  --after-leave-bg-x: calc(100% + var(--computed-offset-right));
+  --bg-width: calc(100% + calc(var(--computed-offset-left) + var(--computed-offset-right)));
+  --bg-y: calc(var(--computed-offset-top) * -1);
+  --bg-height: calc(100% + calc(var(--computed-offset-top) + var(--computed-offset-bottom)));
+
+  cursor: pointer;
+  overflow: visible;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-origin: border-box;
+  background-image: linear-gradient(to right, var(--background-color), var(--background-color));
+  border-left: solid var(--computed-offset-left) transparent;
+  border-right: solid var(--computed-offset-right) transparent;
+  border-bottom: solid var(--computed-offset-bottom) transparent;
+  border-top: solid var(--computed-offset-top) transparent;
+  background-position: var(--before-enter-bg-x) var(--bg-y);
+  background-size: 0% var(--bg-height);
+  transition: color var(--link-animation-duration, 0s) ease,
+    background-size var(--link-animation-duration, 0s) ease;
+
+  @include lt-md {
+    --link-animation-duration: #{$link-animation-duration-mobile};
+    --active-link-animation-duration: #{$link-animation-duration-mobile};
+    --active-link-animation-delay: #{$active-link-animation-delay-mobile};
+  }
+
+
+  & svg {
+    transition: fill var(--link-animation-duration, 0s) ease;
+  }
+
+  /**
+  * If js is used, the following classes will be added by our script
+  * and trigger an hover effect instead of :hover and :focus-visible
+  */
+  &.--enter {
+    @include hovered-clickable;
+  }
+
+  &.--leave {
+    background-position: var(--bg-width) var(--bg-y);
+  }
+
+  /** If js is not used, we use regular :hover and :focus-visible */
+  @if $no-js {
+    & {
+      @include nojs-background-color;
+
+      &:hover,
+      &:focus-visible {
+        @include hovered-clickable;
+      }
+    }
+  }
+}
+
+@mixin hovered-clickable {
+  // @include md {
+  background-size: var(--bg-width) var(--bg-height);
+  color: $hovered-clickable-font-color;
+
+  & svg {
+    fill: $hovered-clickable-font-color;
+  }
+}
+
+
+@mixin activable-clickable {
+  user-select: none;
+  display: inline-block;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    background: $active-clickable-bg-color;
+    width: calc(var(--bg-width) - 2px);
+    transform: scaleX(0);
+    transition: transform var(--active-link-animation-duration) 0s ease;
+    /* stylelint-disable */
+    /* Inset does not work on pseudoelements on Safari, whereas stylelint would try to use it */
+    top: calc(var(--computed-offset-top, 0) * -1);
+    bottom: calc(var(--computed-offset-bottom, 0) * -1);
+    right: calc(1px + calc(var(--computed-offset-right, 0) * -1));
+    left: calc(1px + calc(var(--computed-offset-left, 0) * -1));
+    /* stylelint-enable */
+    transform-origin: right 0%;
+  }
+
+  &:hover::before {
+    transition: transform var(--active-link-animation-duration) var(--active-link-animation-delay) ease;
+  }
+}
+
+@mixin active-clickable {
+  color: $active-clickable-font-color;
+
+  &::before {
+    transform-origin: left 0%;
+    transform: scaleX(1);
+  }
+}

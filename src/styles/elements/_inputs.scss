@@ -1,0 +1,29 @@
+form.search__form {
+  @apply mt-2 flex flex-col md:flex-row gap-2 items-center;
+
+  input[type="search"] {
+    @apply flex-1 basis-full md:basis-2/3 grow;
+
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $vv-web-black;
+    }
+  }
+
+  .search__submit {
+    @apply w-full basis-full md:basis-1/3;
+    
+    input[type="submit"] {
+      @apply w-full h-full;
+
+      position: relative;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+  }
+}

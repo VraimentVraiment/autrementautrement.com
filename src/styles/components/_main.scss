@@ -1,0 +1,30 @@
+main {
+  @apply pb-16;
+
+  margin-top: $header-height;
+  min-height: calc(100vh - $header-height);
+
+  &:not(.main__post, .main__map-post) {
+    @include medium-column;
+    @apply relative pt-16;
+  }
+
+  &.main__post, .main__map-post {
+    background: $vv-web-white;
+  }
+}
+
+main h1,
+main h2,
+main h3:not(#vv-map-mapbox-container h3, .posts__header h3) {
+  @include slide-in;
+}
+
+main p:not(a p, #vv-map-mapbox-container p),
+main figure {
+  @include slide-in;
+}
+
+.posts__header {
+  @include slide-in;
+}

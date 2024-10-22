@@ -1,0 +1,7 @@
+.current-page-indicator {
+  @apply inline text-sm mt-0 ml-2;
+
+  line-height: 2.25;
+  min-width: 5rem;
+  color: $vv-web-black-light;
+}

@@ -1,0 +1,7 @@
+ul.gallery {
+  @apply relative flex flex-row flex-wrap gap-4;
+
+  .gallery__item {
+    @apply relative flex-1 w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5;
+  }
+}

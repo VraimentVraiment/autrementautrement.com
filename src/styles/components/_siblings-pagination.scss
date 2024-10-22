@@ -1,0 +1,55 @@
+.siblings-pagination {
+  @include main-column;
+
+  .siblings-pagination__inner {
+    @apply flex flex-col md:flex-row justify-between gap-8 md:gap-4 lg:gap-8;
+    @apply py-8 px-1 mt-2;
+
+    border-top: solid 1px $color-border;
+  }
+}
+
+.siblings-pagination__item {
+  @apply m-0 md:max-w-1/2;
+  
+  .siblings-pagination__label {
+    // @apply inline-flex flex-col gap-1;
+
+    .siblings-pagination__label-header {
+      @apply text-sm block mb-1;
+
+      // text-decoration: underline !important;
+      color: $vv-web-black-light;
+    }
+
+    .siblings-pagination__label-content {
+      @apply text-lg inline;
+
+      font-weight: 700 !important;
+    }
+  }
+
+  a {
+    @apply flex justify-end items-center text-base gap-4 decoration-none;
+
+    .siblings-pagination__item-icon {
+      @apply block min-w-1em min-h-1em;
+    }
+  }
+
+  &.siblings-pagination__item--prev a {
+    @apply flex-row-reverse;
+
+    .siblings-pagination__item-icon {
+      @apply i-ri-arrow-left-line;
+    }
+  }
+
+  &.siblings-pagination__item--next a {
+    text-align: right;
+
+    .siblings-pagination__item-icon {
+      @apply i-ri-arrow-right-line;
+    }
+  }
+}

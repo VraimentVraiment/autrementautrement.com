@@ -1,0 +1,62 @@
+.post-nav-back{
+  a {
+    @include slide-in;
+  }
+}
+
+.post-nav-back,
+.post-nav-to-top {
+  a {
+    @apply inline-flex gap-2 items-center;
+  }
+}
+
+.post-nav-back__icon {
+  @apply i-ri-arrow-left-line;
+}
+
+.post-nav-to-top__icon {
+  @apply i-ri-arrow-up-line;
+}
+
+.post-nav-to-top-container {
+  pointer-events: none;
+
+  @include slide-in;
+  @apply w-full flex justify-end fixed z-800 bottom-8;
+  @include tight-column;
+
+  a {
+    @include slide-in;
+  }
+}
+
+.post-nav-to-top {
+  pointer-events: auto;
+
+  @apply pl-4 pr-3 py-2;
+
+  @include lg {
+    transform: translateX(calc(100% + 1rem));
+  }
+
+  @include xl {
+    transform: translateX(calc(100% + 2rem));
+  }
+
+  background: $vv-web-white;
+  border: solid 1px $vv-web-black;
+}
+
+// .post-nav-to-top {
+//   @apply pl-4 pr-3 py-2;
+
+//   background: $vv-web-white;
+//   border: solid 1px $vv-web-black;
+
+//   @apply block fixed z-800 bottom-8 right-8;
+
+//   a {
+//     @include slide-in;
+//   }
+// }

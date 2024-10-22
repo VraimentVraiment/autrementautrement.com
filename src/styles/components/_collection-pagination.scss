@@ -1,0 +1,39 @@
+nav.collection-pagination {
+  @apply w-full flex justify-center py-4;
+
+  ul {
+    @apply flex flex-wrap gap-4 items-center;
+
+    li.collection-pagination__item {
+      @apply text-xl;
+
+      a {
+        @apply block w-10 h-10;
+        @apply flex justify-center items-center;
+
+        &[aria-current="page"] {
+          text-decoration: none !important;
+          background-color: $color-font-dark;
+        }
+
+        span.collection-pagination__icon {
+          &.collection-pagination__icon--prev {
+            @apply i-ri-arrow-left-s-line;
+          }
+          
+          &.collection-pagination__icon--next {
+            @apply i-ri-arrow-right-s-line;
+          }
+
+          &.collection-pagination__icon--first {
+            @apply i-ri-skip-left-line;
+          }
+
+          &.collection-pagination__icon--last {
+            @apply i-ri-skip-right-line;
+          }
+        }
+      }
+    }
+  }
+}

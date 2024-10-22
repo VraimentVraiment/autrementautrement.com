@@ -1,0 +1,29 @@
+title: Articles
+
+icon: road-sign
+
+extends: pages/mandatory
+
+tabs:
+  posts:
+    label: Articles
+    icon: road-sign
+    columns:
+      - width: 1
+        sections:
+          drafts:
+            extends: sections/posts
+            label: Articles en brouillon
+            status: draft
+            limit: 6
+            empty: Aucun article n'est en mode brouillon
+      - width: 1
+        sections:
+          listed:
+            extends: sections/posts
+            label: Articles publiés
+            status: listed
+            empty: Aucun article n'est publié
+            layout: cards
+            size: medium
+            search: true

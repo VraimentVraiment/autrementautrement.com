@@ -1,0 +1,10 @@
+type: pages
+label: Pages articles
+parent: kirby.page("articles")
+template:
+  - post
+  - map-post
+sortBy: date desc
+image:
+  query: page.cover.toFile
+  back: white

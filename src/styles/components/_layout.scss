@@ -1,0 +1,47 @@
+.main__inner>.k-layouts {
+  @apply w-full flex flex-col;
+  @apply gap-x-8 sm:gap-x-12;
+  @apply gap-y-8 sm:gap-y-12;
+}
+
+// .k-layouts .k-layouts {
+// }
+
+.k-row {
+  @apply flex flex-row flex-wrap;
+  @apply mx--4 sm:mx--6 lg:mx--8 xl:mx--10;
+
+  // @apply my--4 sm:my--6 lg:my--8 xl:my--10;
+
+  @apply gap-y-4 sm:gap-y-6 lg:gap-y-8 xl:gap-y-10;
+}
+
+.k-column {
+  @apply w-full flex flex-col;
+  @apply px-4 sm:px-6 lg:px-8 xl:px-10;
+
+  // @apply py-4 sm:py-6 lg:py-8 xl:py-10;
+  @apply gap-8;
+
+  @for $i from 1 through 6 {
+    &.k-column--span-#{$i} {
+      @apply md:w-#{$i}/6;
+    }
+  }
+}
+
+.k-row,
+.k-column,
+.k-block {
+  &:empty {
+    @apply lt-md:hidden;
+  }
+}
+
+.k-block:has(.spacing--none) {
+  @apply md:hidden;
+}
+
+.k-block:has(.lt-md\:spacing--none) {
+  @apply lt-md:hidden;
+}

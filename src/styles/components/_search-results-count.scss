@@ -1,0 +1,11 @@
+.search-results-count {
+  @apply flex justify-between;
+
+  p:first-child {
+    @apply m-0;
+  }
+
+  .current-page-indicator {
+    text-align: right;
+  }
+}

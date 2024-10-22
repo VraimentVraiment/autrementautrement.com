@@ -1,0 +1,36 @@
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  border-top: solid 1px $vv-web-black-lightest !important;
+
+  @apply w-full mt-4;
+
+  button.collapsible__summary {
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+    color: $vv-web-black-light;
+
+    @apply flex items-center justify-between w-full py-3 px-2;
+
+    h3 {
+      padding-top: .25rem;
+    }
+  }
+
+  .collapsible__content {
+    display: none;
+    overflow: hidden;
+
+    @apply pb-6 px-2;
+  }
+
+  &.collapsible--expanded {
+    .collapsible__content {
+      display: block;
+    }
+
+    button.collapsible__summary .collapsible__summary-icon {
+      transform: rotate(180deg);
+    }
+  }
+}

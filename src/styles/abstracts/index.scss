@@ -1,0 +1,64 @@
+@import "variables/";
+@import "mixins/";
+@import "@/assets/fonts/source-serif-4/stylesheet.css";
+@import "font-faces";
+
+$use-font: 'source-serif';
+
+// $use-font: 'copernicus';
+
+@if $use-font == 'source-serif' {
+  :root {
+    font-family: "Source Serif 4 SmText", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Source Serif 4 Caption", sans-serif;
+  }
+
+  .post-categories__title {
+    font-weight: 600 !important;
+  }
+
+} @else if $use-font == 'copernicus' {
+  :root, figcaption {
+    font-family: Copernicus, "Source Serif 4 SmText", sans-serif;
+  }
+}
+
+$main-font-name2: "Helvetica Neue LT Std";
+$main-font-url2: "@/assets/fonts/helvetica/helvetica.woff";
+$font-family: $main-font-name2, helvetica, arial, -apple-system, system-ui, blinkmacsystemfont, sans-serif;
+
+@font-face {
+  font-family: $main-font-name2;
+  src: url("#{$main-font-url2}2") format("woff2"), url("#{$main-font-url2}") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.current-page-indicator,
+.post-card__type,
+.post-card__date,
+.tag,
+.post__info,
+.post__reading-time,
+figcaption,
+.siblings-pagination__label-header,
+.post-nav-back,
+.collection-pagination__item a,
+.site-footer,
+// .text--2xl,
+.post-categories__title,
+.post-nav-to-top__link,
+.search__content,
+.search-query__label,
+{
+  font-family: "Helvetica Neue Lt Std", sans-serif;
+}

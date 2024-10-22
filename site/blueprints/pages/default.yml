@@ -1,0 +1,22 @@
+title: Page par défaut
+
+status:
+  draft:
+    label: Brouillon
+    text: La page est encore en mode brouillon. Elle ne peut-être vue que par les éditeurs ayant accès au panel d'administration.
+
+  listed:
+    label: Publiée
+    text: La page est en ligne et référencée publiquement.
+
+tabs:
+
+  content:
+    label: Contenu
+    icon: text
+    fields:
+      layout: fields/layout
+
+  seo:
+    label: SEO
+    extends: seo/page

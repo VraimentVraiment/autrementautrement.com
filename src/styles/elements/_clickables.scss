@@ -1,0 +1,163 @@
+@import 'abstract-clickables';
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a,
+a:active,
+a:visited,
+button,
+input[type="submit"] {
+  outline: none;
+  color: inherit;
+}
+
+.link__icon {
+  @apply ml-1;
+}
+
+p a {
+  // margin-left: -0.25em;
+  // margin-right: -0.25em;
+}
+
+a:not(.tag),
+button {
+  // --offset-x: 0.25em;
+  // --offset-y: 0.125em;
+}
+
+.social-media-list {
+  @apply flex flex-row items-center justify-start gap-2;
+
+  a.social-media-link {
+    --offset-x: 0.5em;
+    --offset-y: 0.3em;
+  
+    @apply text-xl;
+  }
+}
+
+a[aria-current="page"] {
+  pointer-events: none;
+  text-decoration: none;
+
+  .site-header nav &,
+  .site-footer nav & {
+    &::before {
+      content: "";
+
+      @apply i-ri-arrow-right-s-line;
+    }
+  }
+}
+
+html.js {
+  button,
+  input[type="submit"],
+  a:not([aria-current="page"]),
+  a:not([aria-current="page"]) span,
+  .is-link-with-background {
+    &.link-with-background {
+      @include clickable;
+    }
+  }
+}
+
+html.no-js {
+  button,
+  a:not([aria-current="page"]) {
+    @include clickable($no-js: true);
+  }
+}
+
+// .search__submit,
+// main button:not(.collapsible__summary) {
+  // @include activable-clickable;
+
+  // color: $vv-web-white;
+
+  // &::before {
+  //   transform: translateX(1px) scaleX(1);
+  // }
+
+  // @include md {
+  //   &:hover {
+  //     color: $vv-web-black;
+  //   }
+  // }
+// }
+
+.collection-pagination__item a {
+  @include activable-clickable;
+
+  &[aria-current="page"] {
+    @include active-clickable;
+  }
+}
+
+.tag {
+  --tag-size: 1.5em;
+  --offset-x: .25em !important;
+
+  @include activable-clickable;
+
+  font-size: 1rem;
+  text-align: start;
+  line-height: var(--tag-size);
+  padding-right: 1.25em;
+
+  .tag__close {
+    position: absolute;
+    right: calc(var(--computed-offset-right) * -1);
+    top: 50%;
+    transform: translateY(-50%) scale(1.05);
+    width: var(--tag-size);
+    height: var(--tag-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .tag__close-icon {
+      transition: background-color var(--active-link-animation-duration) ease;
+      background-color: $color-background !important;
+
+      @apply i-ri-close-line;
+    }
+  }
+
+  @include md {
+    &:not([data-active="true"]) {
+      /** If js is used, the following classes will be added and trigger an hover effect instead of :hover and :focus-visible */
+      &.--enter {
+        --bg-width: calc(100% + var(--computed-offset-left) + var(--computed-offset-right) - var(--tag-size)) !important;
+      }
+
+      &.--leave {
+        --bg-width: calc(100% + var(--computed-offset-left) - var(--tag-size)) !important;
+      }
+
+      /** If js is not used, we use regular :hover and :focus-visible */
+      .no-js &:hover,
+      .no-js &:focus-visible {
+        --bg-width: calc(100% + var(--computed-offset-left) + var(--computed-offset-right) - var(--tag-size)) !important;
+      }
+    }
+  }
+
+  &[data-active="true"] {
+    @include active-clickable;
+
+    .tag__close-icon {
+      background-color: $active-clickable-font-color !important;
+    }
+
+    &.--enter {
+      .tag__close-icon {
+        background-color: $hovered-clickable-font-color !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "autrementautrement.com",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Code for autrementautrement.com, Vraiment Vraiment's blog",
+  "author": "Lucas Poulain (ShallowRed)",
+  "license": "MIT",
+  "homepage": "https://github.com/VraimentVraiment/autrementautrement.com#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VraimentVraiment/autrementautrement.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VraimentVraiment/autrementautrement.com/issues"
+  },
+  "keywords": [
+    "vraimentvraiment",
+    "kirby",
+    "cms",
+    "vite"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run uno -- --watch\" \"vite\"",
+    "build": "npm run uno && vite build --emptyOutDir",
+    "uno": "unocss \"site/**/{snippets,templates}/**/*\" --out-file src/styles/uno.css",
+    "lint": "eslint src/scripts && stylelint \"src/styles/**/*.{css,scss}\" && phpcs"
+  },
+  "dependencies": {
+    "isotope-layout": "^3.0.6"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.4.1",
+    "@iconify-json/ri": "^1.2.0",
+    "@unocss/cli": "^0.62.3",
+    "@unocss/reset": "^0.62.3",
+    "@unocss/transformer-directives": "^0.62.3",
+    "concurrently": "^9.0.0",
+    "eslint": "^9.10.0",
+    "glob": "^11.0.0",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-normalize": "^13.0.0",
+    "sass": "^1.78.0",
+    "stylelint": "^16.9.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "unocss": "^0.62.3",
+    "vite": "^5.4.3",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-kirby": "^5.3.1",
+    "vite-plugin-stylelint": "^5.3.1"
+  }
+}

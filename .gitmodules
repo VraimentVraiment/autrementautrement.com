@@ -1,0 +1,3 @@
+[submodule "autrementautrement.com-content"]
+	path = content
+	url = https://github.com/vraimentvraiment/autrementautrement.com-content

@@ -1,0 +1,31 @@
+footer.site-footer {
+  @include main-column;
+
+  .site-footer__inner {
+    @apply border-t border-solid border-border;
+    @apply py-16 md:py-8;
+  }
+
+  @include md {
+    .k-column {
+      &:not(:last-of-type, :first-of-type) {
+        margin: 0 auto;
+        width: fit-content;
+      }
+
+      &:last-of-type {
+        margin-left: auto;
+        width: fit-content;
+      }
+    }
+  }
+
+  & p,
+  nav ul li {
+    @apply text-base leading-2em;
+  }
+
+  .k-column {
+    @apply gap-2;
+  }
+}
