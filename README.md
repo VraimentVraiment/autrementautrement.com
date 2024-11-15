@@ -6,7 +6,7 @@ It is built with [Kirby CMS](https://getkirby.com), [Vite](https://vitejs.dev) a
 ## Install dependencies
 
 ```bash
-npm run install
+npm install
 composer install
 ```
 
